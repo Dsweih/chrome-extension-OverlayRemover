@@ -1,0 +1,26 @@
+{
+    "name": "Overlay Remover",
+    "description": "Remove popup overlays automatically",
+    "version": "1.0.0",
+    "permissions": [
+        "tabs"
+    ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false // event page
+    },
+    "page_action": {
+      "default_icon": "images/hidden_48.png",
+      "default_title": "Overlay Remover"
+    },
+    "content_scripts": [{
+        "matches": ["*://*.teepr.com/*", "*://*.buzzhand.com/*","*://*.gigacircle.com/*"], // Only work on these sites
+        "js": ["jquery-3.1.1.min.js", "content_script.js"]
+    }],
+    "icons": {
+        "16": "images/hidden_16.png",
+        "48": "images/hidden_48.png",
+        "128": "images/hidden_128.png"
+    },
+    "manifest_version": 2
+}
